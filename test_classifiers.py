@@ -1,3 +1,6 @@
+'''
+A little object doing classification using some basic algorithms. All result metrics are stored in a dataframe
+'''
 import numpy as np
 import pandas as pd
 from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
@@ -57,6 +60,7 @@ class TrainClassifiers:
     def __init__(self, path_to_file):
         self.rng = np.random.RandomState(2)
         p = prepare_data.PrepareData(path_to_file)
+        p.prepare_data()
 
 
 
@@ -65,6 +69,11 @@ class TrainClassifiers:
         self.X_train_fs, self.X_test_fs = p.select_features(self.X_train, self.X_test, self.y_train)
 
     def run_classifiers(self, doPrints=True):
+        '''
+        runs classification for the given algorithms and stores reults metrics
+        :param doPrints: print outs for cmd run
+        :return: a pandas dataframe with result metrics
+        '''
         result_list = []
         # iterate over classifiers
         for name, clf in zip(self.names, self.classifiers):
