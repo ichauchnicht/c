@@ -21,9 +21,6 @@ import prepare_data
 
 
 class TrainClassifiers:
-
-
-
     names = [
         "Nearest Neighbors",
         "Linear SVM",
@@ -52,17 +49,10 @@ class TrainClassifiers:
 
     ]
 
-
-
-
-
-
     def __init__(self, path_to_file):
         self.rng = np.random.RandomState(2)
         p = prepare_data.PrepareData(path_to_file)
         p.prepare_data()
-
-
 
         self.X_train, self.X_test, self.y_train, self.y_test = p.get_train_test_split()
 
@@ -81,7 +71,6 @@ class TrainClassifiers:
             clf = make_pipeline(StandardScaler(), clf)
             clf.fit(self.X_train_fs, self.y_train)
             y_pred = clf.predict(self.X_test_fs)
-
 
             tn, fp, fn, tp = confusion_matrix(self.y_test, y_pred).ravel()
             result_line['name'] = name
@@ -119,8 +108,3 @@ class TrainClassifiers:
 
         self.result = pd.DataFrame(result_list)
         return self.result
-
-
-
-
-
