@@ -1,0 +1,18 @@
+Improvements to be done
+***********************
+
+Prepare data
+------------
+If this code was to be used in a data domain independant context, all column names should be put into a config file or at least function parameters. In this case, more steps need to be added to the prepration step: check and treatment for missing values, check and treatment for outliers. 
+
+Categorical variables
+---------------------
+Transforming categorical data is not implemented completely. The buisness travel variable (1=No Travel, 2=Travel Frequently, 3=Travel Rarely) does not follow numerical sense. Its "natural" order should be provided when transforming the variable. Other categorical variables as deparment or educational field do not seem to have any ranking order. The job role may be ranked hirachically with more provided information. 
+In the data specification, numbers corresponding to strings are not assigned coherrently, OVER 18 (1=YES, 2=NO), OVERTIME (1=NO, 2=YES). In the given csv file, the data is represented as strings, so this does not matter. 
+
+Variables in general
+--------------------
+With the provided information, we do not know if there is an overlap between some variables such as HOURLY RATE, MONTHLY INCOME and MONTHY RATE and if we can skip one or several of them. 
+
+  
+
